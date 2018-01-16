@@ -19,6 +19,7 @@ import com.vaadin.tapio.googlemaps.client.events.MapMoveListener;
 import com.vaadin.tapio.googlemaps.client.events.MarkerClickListener;
 import com.vaadin.tapio.googlemaps.client.events.MarkerDragListener;
 import com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer;
+import com.vaadin.tapio.googlemaps.client.overlays.GoogleMapCircle;
 import com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow;
 import com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker;
 import com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon;
@@ -396,6 +397,24 @@ public class GoogleMap extends AbstractComponentContainer {
         getState().centerSWLimit = limitSW;
         getState().limitCenterBounds = true;
     }
+    
+    /**
+     * Adds a circle overlay to the map
+     * 
+     * @param circle The GoogleMapCircle to add
+     */
+    public void addCircleOverlay(GoogleMapCircle circle) {
+    	getState().circles.add(circle);
+    }
+
+    /**
+     * Removes a circle overlay from the map.
+     *
+     * @param circle The GoogleMapCircle to remove.
+     */
+    public void removeCircleOverlay(GoogleMapCircle circle) {
+        getState().circles.remove(circle);
+    }
 
     /**
      * Adds a polygon overlay to the map.
@@ -652,7 +671,7 @@ public class GoogleMap extends AbstractComponentContainer {
      * Checks if an info window is open.
      *
      * @param infoWindow The window to check.
-     * @return true, if the window is open.
+     * @return true
      */
     public boolean isInfoWindowOpen(GoogleMapInfoWindow infoWindow) {
         return getState().infoWindows.containsKey(infoWindow.getId());
@@ -682,7 +701,7 @@ public class GoogleMap extends AbstractComponentContainer {
     /**
      * Set a traffic layer visibility
      *
-     * @param visible
+     * @param visible, enable traffic layer visibility
      */
     public void setTrafficLayerVisible(boolean visible) {
         getState().trafficLayerVisible = visible;

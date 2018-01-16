@@ -55,6 +55,8 @@ public class GoogleMapKmlLayer implements Serializable {
 
     /**
      * Returns the URL of the KML file being displayed.
+     * 
+     * @return url The URL to display.
      */
     public String getUrl() {
         return url;

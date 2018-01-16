@@ -54,6 +54,7 @@ public class GoogleMapMarker implements Serializable {
      * @param caption   The caption to use.
      * @param position  The position of the marker
      * @param draggable Can marker be dragged?
+     * @param iconUrl   The url of the icon
      */
     public GoogleMapMarker(String caption, LatLon position, boolean draggable,
         String iconUrl) {
